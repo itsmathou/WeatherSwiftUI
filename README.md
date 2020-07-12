@@ -10,6 +10,8 @@ struct DarkSky {
 }
 ```
 
+![](https://github.com/itsmathou/WeatherSwiftUI/blob/master/ScreenShotiPhone11.png?raw=true)
+
 Todo:
 - [ ] Reorganise the logic
 - [ ] Improve the UI
