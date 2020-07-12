@@ -4,4 +4,4 @@ xcuserdata
 
 .DS_Store
 
-Sources/Keys/*
+WeatherSwiftUI/Sources/Keys/
