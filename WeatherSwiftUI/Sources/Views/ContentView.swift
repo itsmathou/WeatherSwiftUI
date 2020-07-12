@@ -14,24 +14,34 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .foregroundColor(Color("sunnyDayBlue"))
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                .foregroundColor(Color("beige"))
                 .edgesIgnoringSafeArea(.all)
             
             SunView()
                 .padding(.top, -900)
             
-            VStack {
+            VStack(alignment: .center) {
                 Text("St Père en Retz")
                     .font(.largeTitle)
+                    .padding(.bottom, 50)
+                
+                Text("\(summary(weather.daily.data[0].summary))")
+                    .font(.title)
                     .padding(.bottom, 20)
                 
                 TemperatureView(weather: weather)
-                    .padding(.bottom, 20)
+                    .padding(10)
+                    .frame(alignment: .center)
                 
                 SunPhaseView(weather: weather)
             }
+            .padding(30)
         }
+    }
+    
+    private func summary(_ summary: String) -> String {
+        return String(summary.dropLast())
     }
 }
 

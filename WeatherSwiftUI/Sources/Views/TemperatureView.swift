@@ -12,9 +12,23 @@ struct TemperatureView: View {
     
     var body: some View {
         HStack {
-            Text("Min: \(rounded(temperature: weather.daily.data[0].temperatureMin))")
-            Text("Currently: \(rounded(temperature: weather.currently.temperature))")
-            Text("Max: \(rounded(temperature: weather.daily.data[0].temperatureMax))")
+            HStack {
+                Image(systemName: "arrowtriangle.down.fill")
+                Text("\(rounded(temperature: weather.daily.data[0].temperatureMin))")
+            }
+            .padding(5)
+            
+            Text("\(rounded(temperature: weather.currently.temperature))")
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .padding(10)
+                .padding(.bottom, 30)
+            
+            HStack {
+                Image(systemName: "arrowtriangle.up.fill")
+                Text("\(rounded(temperature: weather.daily.data[0].temperatureMax))")
+            }
+            .padding(5)
         }
     }
     

@@ -20,15 +20,17 @@ struct SunPhaseView: View {
             ZStack {
                 Circle()
                     .stroke(lineWidth: 8.0)
-                    .opacity(0.2)
-                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(.white)
+                    .opacity(0.3)
+                    .frame(width: 100, height: 100, alignment: .center)
                 
                 Circle()
                     .trim(from: 0.0, to: percentageSunLeft())
                     .stroke(style: StrokeStyle(lineWidth: 8.0, lineCap: .round, lineJoin: .round))
+                    .foregroundColor(Color("clementine"))
                     .opacity(0.5)
-                    .rotationEffect(Angle(degrees: 270), anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .rotationEffect(Angle(degrees: 270), anchor: .center)
+                    .frame(width: 100, height: 100, alignment: .center)
                 
                 Text("\(sunLeft(from: weather.currently.time, toSunset: weather.daily.data[0].sunsetTime))")
             }

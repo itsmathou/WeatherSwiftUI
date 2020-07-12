@@ -23,23 +23,18 @@ struct Currently: Codable {
     let temperature, humidity: Double
 }
 
-//enum Icon: String, Codable {
-//    case cloudy = "cloudy"
-//    case partlyCloudyDay = "partly-cloudy-day"
-//    case partlyCloudyNight = "partly-cloudy-night"
-//    case clearDay = "clear-day"
-//    case clearNight = "clear-night"
-//    case rain = "rain"
-//    case snow = "snow"
-//    case
-//}
-
-//enum Summary: String, Codable {
-//    case mostlyCloudy = "Mostly Cloudy"
-//    case overcast = "Overcast"
-//    case partlyCloudy = "Partly Cloudy"
-////    clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
-//}
+enum Icon: String, Codable {
+    case cloudy = "cloudy"
+    case partlyCloudyDay = "partly-cloudy-day"
+    case partlyCloudyNight = "partly-cloudy-night"
+    case clearDay = "clear-day"
+    case clearNight = "clear-night"
+    case rain = "rain"
+    case snow = "snow"
+    case sleet = "sleet"
+    case wind = "wind"
+    case fog = "fog"
+}
 
 // MARK: - Daily
 struct Daily: Codable {
