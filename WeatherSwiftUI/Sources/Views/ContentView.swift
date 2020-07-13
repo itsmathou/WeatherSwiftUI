@@ -15,10 +15,10 @@ struct ContentView: View {
         ZStack {
             Rectangle()
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                .foregroundColor(Color("beige"))
+                .foregroundColor(backgroundColor(for: weather.currently.theme))
                 .edgesIgnoringSafeArea(.all)
             
-            SunView()
+            SunView(theme: weather.currently.theme)
                 .padding(.top, -900)
             
             VStack(alignment: .center) {
@@ -43,6 +43,19 @@ struct ContentView: View {
     private func summary(_ summary: String) -> String {
         return String(summary.dropLast())
     }
+    
+    private func backgroundColor(for theme: Theme) -> Color {
+        switch theme {
+        case .clearDay, .partlyCloudyDay:
+            return Color("beige")
+        case .cloudy, .rain, .snow, .sleet, .wind, .fog:
+            return Color("lightGrey")
+        case .clearNight, .partlyCloudyNight:
+            return Color("notPink")
+        default:
+            return Color("beige")
+        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -58,9 +71,15 @@ extension WeatherModel {
                        timezone: "Europe/Paris",
                        currently: Currently(time: 1594488541,
                                             summary: "Partly Cloudy",
-                                            icon: "partly-cloudy-day",
+                                            theme: Theme(rawValue: "clear-day"),
                                             temperature: 24,
                                             humidity: 0.4),
-                       daily: Daily(summary: "No precipitation throughout the week.", icon: "clear-day", data: [DailyDatum(time: 1594418400, summary: "Clear throughout the day.", icon: "clear-day", sunriseTime: 1594441500, sunsetTime: 1594497900, temperatureMin: 11, temperatureMax: 25)]))
+                       daily: Daily(summary: "No precipitation throughout the week.",
+                                    data: [DailyDatum(time: 1594418400,
+                                                      summary: "Clear throughout the day.",
+                                                      sunriseTime: 1594441500,
+                                                      sunsetTime: 1594497900,
+                                                      temperatureMin: 11,
+                                                      temperatureMax: 25)]))
     }
 }

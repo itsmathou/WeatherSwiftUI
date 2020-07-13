@@ -14,9 +14,9 @@
 		B51B24DD24B6FE340027B03C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51B24DC24B6FE340027B03C /* Preview Assets.xcassets */; };
 		B51B24E824B6FE340027B03C /* WeatherSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B24E724B6FE340027B03C /* WeatherSwiftUITests.swift */; };
 		B51B24F324B6FE340027B03C /* WeatherSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B24F224B6FE340027B03C /* WeatherSwiftUIUITests.swift */; };
-		B51B250424B6FF4B0027B03C /* DarkSky+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B250324B6FF4B0027B03C /* DarkSky+Keys.swift */; };
 		B51B250624B6FFC10027B03C /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B250524B6FFC10027B03C /* Networking.swift */; };
 		B51B250824B701370027B03C /* WeatherModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B250724B701370027B03C /* WeatherModelResponse.swift */; };
+		B52FF4AF24BBA4A700CEFB01 /* DarkSky+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52FF4AE24BBA4A700CEFB01 /* DarkSky+Key.swift */; };
 		B55EB73924BB4FA500B31FEE /* SunPhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EB73824BB4FA500B31FEE /* SunPhaseView.swift */; };
 		B55EB73B24BB4FFF00B31FEE /* TemperatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EB73A24BB4FFF00B31FEE /* TemperatureView.swift */; };
 		B55EB73D24BB502B00B31FEE /* SunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EB73C24BB502B00B31FEE /* SunView.swift */; };
@@ -54,9 +54,9 @@
 		B51B24EE24B6FE340027B03C /* WeatherSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51B24F224B6FE340027B03C /* WeatherSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSwiftUIUITests.swift; sourceTree = "<group>"; };
 		B51B24F424B6FE340027B03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B51B250324B6FF4B0027B03C /* DarkSky+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DarkSky+Keys.swift"; sourceTree = "<group>"; };
 		B51B250524B6FFC10027B03C /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		B51B250724B701370027B03C /* WeatherModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModelResponse.swift; sourceTree = "<group>"; };
+		B52FF4AE24BBA4A700CEFB01 /* DarkSky+Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DarkSky+Key.swift"; sourceTree = "<group>"; };
 		B55EB73824BB4FA500B31FEE /* SunPhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunPhaseView.swift; sourceTree = "<group>"; };
 		B55EB73A24BB4FFF00B31FEE /* TemperatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureView.swift; sourceTree = "<group>"; };
 		B55EB73C24BB502B00B31FEE /* SunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunView.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 		B51B250224B6FF3A0027B03C /* Keys */ = {
 			isa = PBXGroup;
 			children = (
-				B51B250324B6FF4B0027B03C /* DarkSky+Keys.swift */,
+				B52FF4AE24BBA4A700CEFB01 /* DarkSky+Key.swift */,
 			);
 			path = Keys;
 			sourceTree = "<group>";
@@ -328,9 +328,9 @@
 				B5F78BE624BA5B2E00C5374F /* WeatherPlaceholder.swift in Sources */,
 				B55EB73D24BB502B00B31FEE /* SunView.swift in Sources */,
 				B51B250824B701370027B03C /* WeatherModelResponse.swift in Sources */,
-				B51B250424B6FF4B0027B03C /* DarkSky+Keys.swift in Sources */,
 				B506C7D724B7921900560265 /* WeatherModel.swift in Sources */,
 				B51B250624B6FFC10027B03C /* Networking.swift in Sources */,
+				B52FF4AF24BBA4A700CEFB01 /* DarkSky+Key.swift in Sources */,
 				B55EB73924BB4FA500B31FEE /* SunPhaseView.swift in Sources */,
 				B55EB73B24BB4FFF00B31FEE /* TemperatureView.swift in Sources */,
 			);

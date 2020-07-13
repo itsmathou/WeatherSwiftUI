@@ -27,12 +27,14 @@ struct SunPhaseView: View {
                 Circle()
                     .trim(from: 0.0, to: percentageSunLeft())
                     .stroke(style: StrokeStyle(lineWidth: 8.0, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(Color("clementine"))
-                    .opacity(0.5)
+                    .foregroundColor(.black)
+                    .opacity(0.3)
                     .rotationEffect(Angle(degrees: 270), anchor: .center)
                     .frame(width: 100, height: 100, alignment: .center)
                 
                 Text("\(sunLeft(from: weather.currently.time, toSunset: weather.daily.data[0].sunsetTime))")
+                    .multilineTextAlignment(.center)
+                    .frame(width: 80, height: 80, alignment: .center)
             }
         }
     }
@@ -51,10 +53,12 @@ struct SunPhaseView: View {
         
         var diff: String = ""
         if let hours = diffComponents.hour, let minutes = diffComponents.minute {
-            if minutes < 10 {
-                diff = "\(hours)h0\(minutes)"
+            if minutes < 0 {
+                diff = "The sun is gone 😭"
+            } else if minutes < 10 {
+                diff = "\(hours)h0\(minutes) of sunlight left"
             } else {
-                diff = "\(hours)h\(minutes)"
+                diff = "\(hours)h\(minutes) of sunlight left"
             }
         } else {
             diff = "Data unavailable"
