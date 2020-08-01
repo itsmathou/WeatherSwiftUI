@@ -10,16 +10,16 @@ import Combine
 
 struct ContentView: View {
     var weather: Weather
+    var colorConfig = ColorConfigurator()
     
     var body: some View {
         ZStack {
-            Rectangle()
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                .foregroundColor(backgroundColor(for: weather.currently.theme))
+            colorConfig.backgroundColor(for: weather.currently.theme)
                 .edgesIgnoringSafeArea(.all)
             
-            SunView(theme: weather.currently.theme)
-                .padding(.top, -900)
+            SunView(theme: weather.currently.theme, colorConfig: colorConfig)
+                .padding(5)
+                .offset(CGSize(width: 0, height: -400.0))
             
             VStack(alignment: .center) {
                 Text("St Père en Retz")
@@ -28,6 +28,7 @@ struct ContentView: View {
                 
                 Text("\(summary(weather.daily.data[0].summary))")
                     .font(.title)
+                    .multilineTextAlignment(.center)
                     .padding(.bottom, 20)
                 
                 TemperatureView(weather: weather)
@@ -42,19 +43,6 @@ struct ContentView: View {
     
     private func summary(_ summary: String) -> String {
         return String(summary.dropLast())
-    }
-    
-    private func backgroundColor(for theme: Theme) -> Color {
-        switch theme {
-        case .clearDay, .partlyCloudyDay:
-            return Color("beige")
-        case .cloudy, .rain, .snow, .sleet, .wind, .fog:
-            return Color("lightGrey")
-        case .clearNight, .partlyCloudyNight:
-            return Color("notPink")
-        default:
-            return Color("beige")
-        }
     }
 }
 
@@ -71,7 +59,7 @@ extension WeatherModel {
                        timezone: "Europe/Paris",
                        currently: Currently(time: 1594488541,
                                             summary: "Partly Cloudy",
-                                            theme: Theme(rawValue: "clear-day"),
+                                            theme: .clearDay,
                                             temperature: 24,
                                             humidity: 0.4),
                        daily: Daily(summary: "No precipitation throughout the week.",
