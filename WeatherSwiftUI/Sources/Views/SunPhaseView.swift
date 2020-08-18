@@ -11,11 +11,12 @@ struct SunPhaseView: View {
     var weather: Weather
     
     var body: some View {
-        HStack {
+        VStack {
             VStack {
                 Text("Sunrise: \(date(from: weather.daily.data[0].sunriseTime))")
                 Text("Sunset: \(date(from: weather.daily.data[0].sunsetTime))")
-            }.padding(.trailing, 20)
+            }
+            .padding(.bottom, 40)
             
             ZStack {
                 Circle()

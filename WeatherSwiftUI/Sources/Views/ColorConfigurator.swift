@@ -60,4 +60,29 @@ struct ColorConfigurator {
         }
     }
     
+    func selectedIconName(for theme: Theme) -> String {
+        switch theme {
+        case .clearDay:
+            return "sun.max"
+        case .partlyCloudyDay:
+            return "cloud.sun"
+        case .cloudy:
+            return "cloud"
+        case .rain:
+            return "cloud"
+        case .snow:
+            return "snow"
+        case .sleet:
+            return "cloud.sleet"
+        case .wind:
+            return "wind"
+        case .fog:
+            return "cloud.fog"
+        case .clearNight:
+            return "moon"
+        case .partlyCloudyNight:
+            return "cloud.moon"
+        default: return ""
+        }
+    }
 }

@@ -14,30 +14,31 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            colorConfig.backgroundColor(for: weather.currently.theme)
-                .edgesIgnoringSafeArea(.all)
-            
-            SunView(theme: weather.currently.theme, colorConfig: colorConfig)
-                .padding(5)
-                .offset(CGSize(width: 0, height: -400.0))
-            
-            VStack(alignment: .center) {
-                Text("St Père en Retz")
-                    .font(.largeTitle)
-                    .padding(.bottom, 50)
+            VStack {
+                HeaderView(
+                    primaryColor: colorConfig.primaryColor(for: weather.currently.theme),
+                    secondaryColor: colorConfig.tertiaryColor(for: weather.currently.theme),
+                    iconName: colorConfig.selectedIconName(for: weather.currently.theme)
+                )
                 
-                Text("\(summary(weather.daily.data[0].summary))")
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom, 20)
+                VStack {
+                    Text("\(summary(weather.daily.data[0].summary))")
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 20)
+                    
+                    TemperatureView(weather: weather)
+                        .padding(10)
+                        .frame(alignment: .center)
+                    
+                    SunPhaseView(weather: weather)
+                }
+                .padding(30)
                 
-                TemperatureView(weather: weather)
-                    .padding(10)
-                    .frame(alignment: .center)
-                
-                SunPhaseView(weather: weather)
+                Spacer()
             }
-            .padding(30)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .edgesIgnoringSafeArea(.top)
         }
     }
     
